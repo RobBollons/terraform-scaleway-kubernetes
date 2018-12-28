@@ -1,0 +1,16 @@
+organization_key = "00000000-0000-0000-0000-000000000000"
+secret_key = "00000000-0000-0000-0000-000000000000"
+region = "ams1"
+
+server_type = "START1-S"
+base_image_id = "b29a1c4e-43ed-4457-95f5-044ab7806e02"
+
+k8s_node_count = 1
+k8s_token = "000000.0000000000000000"
+k8s_master_ip = "00.00.000.00"
+
+ssh_user = "root"
+ssh_key_path = "~/.ssh/id_rsa"
+
+lets_encrypt_username = "user@domain.com"
+lets_encrypt_domain = "kube.domain.com"
