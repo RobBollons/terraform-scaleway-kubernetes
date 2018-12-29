@@ -53,26 +53,26 @@ metadata:
  name: traefik-conf
  namespace: traefik
 data:
- traefik.toml: |-
-   [entryPoints]
-     [entryPoints.http]
-     address = ":80"
-       [entryPoints.http.redirect]
-       entryPoint = "https"
-     [entryPoints.https]
-     address = ":443"
-       [entryPoints.https.tls]
+  traefik.toml: |-
+    [entryPoints]
+      [entryPoints.http]
+      address = ":80"
+        [entryPoints.http.redirect]
+         entryPoint = "https"
+      [entryPoints.https]
+      address = ":443"
+        [entryPoints.https.tls]
 
-   [acme]
-   email = "user@domain.com"
-   storage = "acme.json"
-   entryPoint = "https"
-   onHostRule = true
-   onDemand = true
-   caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
+    [acme]
+    email = "user@domain.com"
+    storage = "acme.json"
+    entryPoint = "https"
+    onHostRule = true
+    onDemand = true
+    caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
 
-  [[acme.domains]]
-    main = "kube.domain.com"
+    [[acme.domains]]
+      main = "kube.domain.com"
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
