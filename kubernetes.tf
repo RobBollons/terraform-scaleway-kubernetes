@@ -28,9 +28,9 @@ resource "scaleway_server" "k8s_master" {
 
   provisioner "remote-exec" {
     inline = [
-      "sed -i 's/- .* # External IP/- ${self.public_ip} # External IP' /tmp/traefik.yaml",
-      "sed -i 's/main \= \"kube.domain.com\"/main \= \"${var.lets_encrypt_domain}\"' /tmp/traefik.yaml",
-      "sed -i 's/email \= \"user@domain.com\"/email \= \"${var.lets_encrypt_username}\"' /tmp/traefik.yaml"
+      "sed -i 's/- .* # External IP/- ${self.public_ip} # External IP/' /tmp/traefik.yaml",
+      "sed -i 's/main = \"kube.domain.com\"/main = \"${var.lets_encrypt_domain}\"/' /tmp/traefik.yaml",
+      "sed -i 's/email = \"user@domain.com\"/email = \"${var.lets_encrypt_username}\"/' /tmp/traefik.yaml"
     ]
   }
 
