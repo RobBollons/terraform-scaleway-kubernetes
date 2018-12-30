@@ -117,7 +117,6 @@ spec:
             - containerPort: 8080
           args:
             - --configfile=/config/traefik.toml
-            - --web
             - --kubernetes
             - --logLevel=DEBUG
 ---

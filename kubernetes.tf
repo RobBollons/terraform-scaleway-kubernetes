@@ -42,8 +42,8 @@ resource "scaleway_server" "k8s_master" {
       "kubectl apply -f https://docs.projectcalico.org/v3.4/getting-started/kubernetes/installation/hosted/etcd.yaml",
       "kubectl apply -f https://docs.projectcalico.org/v3.4/getting-started/kubernetes/installation/hosted/calico.yaml",
       "kubectl taint nodes --all node-role.kubernetes.io/master-",
-      "kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended/kubernetes-dashboard.yaml",
-      "kubectl create -f /tmp/traefik.yaml"
+      "kubectl apply -f /tmp/traefik.yaml",
+      "kubectl apply -f https://raw.githubusercontent.com/giantswarm/kubernetes-prometheus/master/manifests-all.yaml"
     ]
   }
 }
