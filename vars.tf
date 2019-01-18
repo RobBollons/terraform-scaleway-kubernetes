@@ -30,12 +30,12 @@ variable "k8s_node_count" {
 
 variable "k8s_token" {
   description = "Kubernetes token for registering new nodes"
-  default = "000000.0000000000000000"
+  default = "00000000000000000000000"
 }
 
 variable "k8s_master_ip" {
   description = "Kubernetes Master IP Address"
-  default = "00.00.000.00"
+  default = "0.0.0.0"
 }
 
 variable "ssh_user" {
@@ -47,14 +47,3 @@ variable "ssh_key_path" {
   description = "SSH Private Key Path"
   default = "~/.ssh/id_rsa"
 }
-
-variable "lets_encrypt_username" {
-  description = "LetsEncrypt Username"
-  default = "user@domain.com"
-}
-
-variable "lets_encrypt_domain" {
-  description = "LetsEncrypt Domain"
-  default = "kube.domain.com"
-}
-

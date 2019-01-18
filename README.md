@@ -1,8 +1,6 @@
 # terraform-scaleway-kubernetes
 
-A simple [Terraform](https://terraform.io) script for provisioning a [Kubernetes](http://kubernetes.io) cluster on [Scaleway](https://scaleway.com) with [Calico](https://www.projectcalico.org/) for networking and [Traefik](https://traefik.io) for routing/load balancing.
-
-By default this will provision a master and a single node running [Grafana](https://grafana.com/), [Prometheus](https://prometheus.io/)
+A simple [Terraform](https://terraform.io) script for provisioning a [Kubernetes](http://kubernetes.io) cluster on [Scaleway](https://scaleway.com) with [Calico](https://www.projectcalico.org/) for networking.
 
 ## Getting Started
 

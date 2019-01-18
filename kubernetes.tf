@@ -21,19 +21,6 @@ resource "scaleway_server" "k8s_master" {
     destination = "/tmp/install-k8s.sh"
   }
 
-  provisioner "file" {
-    source = "./traefik.yaml"
-    destination = "/tmp/traefik.yaml"
-  }
-
-  provisioner "remote-exec" {
-    inline = [
-      "sed -i 's/- .* # External IP/- ${self.public_ip} # External IP/' /tmp/traefik.yaml",
-      "sed -i 's/main = \"kube.domain.com\"/main = \"${var.lets_encrypt_domain}\"/' /tmp/traefik.yaml",
-      "sed -i 's/email = \"user@domain.com\"/email = \"${var.lets_encrypt_username}\"/' /tmp/traefik.yaml"
-    ]
-  }
-
   provisioner "remote-exec" {
     inline = [
       "bash /tmp/install-k8s.sh",
@@ -42,8 +29,6 @@ resource "scaleway_server" "k8s_master" {
       "kubectl apply -f https://docs.projectcalico.org/v3.4/getting-started/kubernetes/installation/hosted/etcd.yaml",
       "kubectl apply -f https://docs.projectcalico.org/v3.4/getting-started/kubernetes/installation/hosted/calico.yaml",
       "kubectl taint nodes --all node-role.kubernetes.io/master-",
-      "kubectl apply -f /tmp/traefik.yaml",
-      "kubectl apply -f https://raw.githubusercontent.com/giantswarm/kubernetes-prometheus/master/manifests-all.yaml"
     ]
   }
 }
